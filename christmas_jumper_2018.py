@@ -24,6 +24,7 @@ from googleapiclient.discovery import build
 import urllib
 from httplib2 import Http
 from oauth2client import file, client, tools
+from gpiozero import LED
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = 'https://www.googleapis.com/auth/gmail.readonly'
@@ -31,21 +32,39 @@ log_line = 0
 
 class LightsController:
 
+    TREE = LED(14)
+    STAR = LED(15)
+    BALLS = LED(18)
+
     @staticmethod
     def star_on():
-        print("Star on")
+        print_log("Star on")
+        LightsController.STAR.on()
 
     @staticmethod
     def star_off():
-        print("Star off")
+        print_log("Star off")
+        LightsController.STAR.off()
 
     @staticmethod
     def tree_on():
-        print("Tree on")
+        print_log("Tree on")
+        LightsController.TREE.on()
 
     @staticmethod
     def tree_off():
-        print("Tree off")
+        print_log("Tree off")
+        LightsController.TREE.off()
+
+    @staticmethod
+    def balls_on():
+        print_log("Balls on")
+        LightsController.BALLS.on()
+
+    @staticmethod
+    def balls_off():
+        print_log("Balls off")
+        LightsController.BALLS.off()
 
     @staticmethod
     def flash_star(count=10):
@@ -59,10 +78,13 @@ class LightsController:
     def flash_tree(count=10):
         for i in range(count):
             LightsController.tree_on()
+            LightsController.balls_off()
             sleep(0.5)
             LightsController.tree_off()
+            LightsController.balls_on()
             sleep(0.5)
-
+        LightsController.balls_off()
+        LightsController.tree_off()
 
 def print_log(msg):
     global log_line
