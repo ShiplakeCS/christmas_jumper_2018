@@ -88,6 +88,7 @@ class LightsController:
             LightsController.tree_off()
             LightsController.balls_off()
             LightsController.star_on()
+            sleep(0.5)
 
         LightsController.balls_off()
         LightsController.tree_off()
