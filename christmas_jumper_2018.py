@@ -150,7 +150,7 @@ if __name__ == '__main__':
 
     while True:
         try:
-            connect_and_check_for_email(2)
+            connect_and_check_for_email(5)
         except Exception as e:
             print_log("Exception raised. Likely no Internet connection.")
             print_log("Waiting 10 seconds before trying again...")
