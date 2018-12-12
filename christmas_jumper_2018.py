@@ -79,12 +79,19 @@ class LightsController:
         for i in range(count):
             LightsController.tree_on()
             LightsController.balls_off()
+            LightsController.star_off()
             sleep(0.5)
             LightsController.tree_off()
             LightsController.balls_on()
+            LightsController.star_off()
             sleep(0.5)
+            LightsController.tree_off()
+            LightsController.balls_off()
+            LightsController.star_on()
+
         LightsController.balls_off()
         LightsController.tree_off()
+        LightsController.star_off()
 
 def print_log(msg):
     global log_line
