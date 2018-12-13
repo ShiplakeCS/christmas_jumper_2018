@@ -33,38 +33,47 @@ log_line = 0
 class LightsController:
 
     TREE = LED(14)
+    TREE2 = LED(16)
     STAR = LED(15)
+    STAR2 = LED(20)
     BALLS = LED(18)
+    BALLS2 = LED(21)
 
     @staticmethod
     def star_on():
         print_log("Star on")
         LightsController.STAR.on()
+        LightsController.STAR2.on()
 
     @staticmethod
     def star_off():
         print_log("Star off")
         LightsController.STAR.off()
+        LightsController.STAR2.off()
 
     @staticmethod
     def tree_on():
         print_log("Tree on")
         LightsController.TREE.on()
+        LightsController.TREE2.on()
 
     @staticmethod
     def tree_off():
         print_log("Tree off")
         LightsController.TREE.off()
+        LightsController.TREE2.off()
 
     @staticmethod
     def balls_on():
         print_log("Balls on")
         LightsController.BALLS.on()
+        LightsController.BALLS2.on()
 
     @staticmethod
     def balls_off():
         print_log("Balls off")
         LightsController.BALLS.off()
+        LightsController.BALLS2.off()
 
     @staticmethod
     def flash_star(count=10):
